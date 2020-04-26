@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: documentor
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/documentor?createDatabaseIfNotExist=true
+    username: admin
+    password: admin
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: false
+    show-sql: true
+  liquibase:
+    change-log: classpath:db/changelog/master.xml
+
+fileWatcher:
+  watchFolder: C:\\dev\\DocDirUnderWatch
+  processDir: C:\\dev\\ProcessedFiles
+  genDir: C:\\dev\\GenFiles
+
+auth:
+  authorities-key: authorities
+  jwt-secret: MwF%bgENN=-D=k%aSDMrsK6LCChAsa6Xh?$U^s#e2RzT7SCYWC-?MpvdK75gu6!n
+  cors-origins: 'http://localhost:4200'

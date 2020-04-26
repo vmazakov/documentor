@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet author="mazakov" id="1582721395019-1">
+        <createTable tableName="field_option">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="option_key" type="VARCHAR(255)"/>
+            <column name="option_value" type="VARCHAR(255)"/>
+            <column name="form_field_id" type="BIGINT"/>
+            <column name="created_by" type="BIGINT"/>
+            <column name="created_at" type="timestamp"/>
+            <column name="updated_by" type="BIGINT"/>
+            <column name="updated_at" type="timestamp"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="mazakov" id="1582721395019-2">
+        <createTable tableName="field_validator">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="validator_key" type="VARCHAR(255)"/>
+            <column name="validator_value" type="VARCHAR(255)"/>
+            <column name="form_field_id" type="BIGINT"/>
+            <column name="created_by" type="BIGINT"/>
+            <column name="created_at" type="timestamp"/>
+            <column name="updated_by" type="BIGINT"/>
+            <column name="updated_at" type="timestamp"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="mazakov" id="1582721395019-3">
+        <createTable tableName="form_field">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="field_key" type="VARCHAR(255)"/>
+            <column name="field_label" type="VARCHAR(255)"/>
+            <column name="field_order" type="INT"/>
+            <column name="field_sub_type" type="VARCHAR(255)"/>
+            <column name="field_type" type="VARCHAR(255)"/>
+            <column name="field_value" type="VARCHAR(255)"/>
+            <column name="form_template_id" type="BIGINT"/>
+            <column name="created_by" type="BIGINT"/>
+            <column name="created_at" type="timestamp"/>
+            <column name="updated_by" type="BIGINT"/>
+            <column name="updated_at" type="timestamp"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="mazakov" id="1582721395019-4">
+        <createTable tableName="form_field_hist">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="field_value" type="VARCHAR(255)"/>
+            <column name="form_field_id" type="BIGINT"/>
+            <column name="form_template_id" type="BIGINT"/>
+            <column name="user_id" type="BIGINT"/>
+            <column name="created_by" type="BIGINT"/>
+            <column name="created_at" type="timestamp"/>
+            <column name="updated_by" type="BIGINT"/>
+            <column name="updated_at" type="timestamp"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="mazakov" id="1582721395019-5">
+        <createTable tableName="form_template">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="template_key" type="VARCHAR(255)"/>
+            <column name="template_name" type="VARCHAR(255)"/>
+            <column name="created_by" type="BIGINT"/>
+            <column name="created_at" type="timestamp"/>
+            <column name="updated_by" type="BIGINT"/>
+            <column name="updated_at" type="timestamp"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="mazakov" id="1582721395019-6">
+        <createTable tableName="privileges">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="order_id" type="VARCHAR(45)"/>
+            <column name="created_by" type="BIGINT"/>
+            <column name="created_at" type="timestamp"/>
+            <column name="updated_by" type="BIGINT"/>
+            <column name="updated_at" type="timestamp"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="mazakov" id="1582721395019-7">
+        <createTable tableName="role_privileges">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="role_id" type="BIGINT"/>
+            <column name="privilege_id" type="BIGINT"/>
+            <column name="created_by" type="BIGINT"/>
+            <column name="created_at" type="timestamp"/>
+            <column name="updated_by" type="BIGINT"/>
+            <column name="updated_at" type="timestamp"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="mazakov" id="1582721395019-8">
+        <createTable tableName="roles">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="is_active" type="INT"/>
+            <column name="is_system" type="INT"/>
+            <column name="created_by" type="BIGINT"/>
+            <column name="created_at" type="timestamp"/>
+            <column name="updated_by" type="BIGINT"/>
+            <column name="updated_at" type="timestamp"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="mazakov" id="1582721395019-9">
+        <createTable tableName="user_roles">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="user_id" type="BIGINT"/>
+            <column name="role_id" type="BIGINT"/>
+            <column name="created_by" type="BIGINT"/>
+            <column name="created_at" type="timestamp"/>
+            <column name="updated_by" type="BIGINT"/>
+            <column name="updated_at" type="timestamp"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="mazakov" id="1582721395019-10">
+        <createTable tableName="users">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="first_name" type="VARCHAR(255)"/>
+            <column name="last_name" type="VARCHAR(255)"/>
+            <column name="password" type="VARCHAR(255)"/>
+            <column name="username" type="VARCHAR(255)"/>
+            <column name="manager_id" type="BIGINT"/>
+            <column name="is_active" type="INT"/>
+            <column name="is_system" type="INT"/>
+            <column name="created_by" type="BIGINT"/>
+            <column name="created_at" type="timestamp"/>
+            <column name="updated_by" type="BIGINT"/>
+            <column name="updated_at" type="timestamp"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="mazakov" id="1582721395019-11">
+        <createIndex indexName="created_key_idx" tableName="users">
+            <column name="created_by"/>
+        </createIndex>
+
+        <createIndex indexName="updated_key_idx" tableName="users">
+            <column name="updated_by"/>
+        </createIndex>
+
+        <createIndex indexName="user_manager_key" tableName="users">
+            <column name="manager_id"/>
+        </createIndex>
+
+        <createIndex indexName="field_hist_field_key" tableName="form_field_hist">
+            <column name="form_field_id"/>
+        </createIndex>
+
+        <createIndex indexName="field_hist_templ_key" tableName="form_field_hist">
+            <column name="form_template_id"/>
+        </createIndex>
+
+        <createIndex indexName="field_hist_user_key" tableName="form_field_hist">
+            <column name="user_id"/>
+        </createIndex>
+
+        <createIndex indexName="field_template_key" tableName="form_field">
+            <column name="form_template_id"/>
+        </createIndex>
+
+        <createIndex indexName="option_field_key" tableName="field_option">
+            <column name="form_field_id"/>
+        </createIndex>
+
+        <createIndex indexName="priv_created_key_idx" tableName="privileges">
+            <column name="created_by"/>
+        </createIndex>
+
+        <createIndex indexName="priv_key_idx" tableName="role_privileges">
+            <column name="privilege_id"/>
+        </createIndex>
+
+        <createIndex indexName="priv_updated_key_idx" tableName="privileges">
+            <column name="updated_by"/>
+        </createIndex>
+
+        <createIndex indexName="rol_priv_created_key_idx" tableName="role_privileges">
+            <column name="created_by"/>
+        </createIndex>
+
+        <createIndex indexName="rol_priv_key_idx" tableName="role_privileges">
+            <column name="role_id"/>
+        </createIndex>
+
+        <createIndex indexName="rol_priv_updated_key_idx" tableName="role_privileges">
+            <column name="updated_by"/>
+        </createIndex>
+
+        <createIndex indexName="role_created_key_idx" tableName="roles">
+            <column name="created_by"/>
+        </createIndex>
+
+        <createIndex indexName="role_updated_key_idx" tableName="roles">
+            <column name="updated_by"/>
+        </createIndex>
+
+        <createIndex indexName="user_role_created_key_idx" tableName="user_roles">
+            <column name="created_by"/>
+        </createIndex>
+
+        <createIndex indexName="user_role_rolkey_idx" tableName="user_roles">
+            <column name="role_id"/>
+        </createIndex>
+
+        <createIndex indexName="user_role_updated_key_idx" tableName="user_roles">
+            <column name="updated_by"/>
+        </createIndex>
+
+        <createIndex indexName="user_role_usrkey_idx" tableName="user_roles">
+            <column name="user_id"/>
+        </createIndex>
+
+        <createIndex indexName="validator_field_key" tableName="field_validator">
+            <column name="form_field_id"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="mazakov" id="1582721395019-12">
+        <addForeignKeyConstraint baseColumnNames="created_by" baseTableName="users" constraintName="created_key"
+                                 deferrable="false" initiallyDeferred="false"
+                                 onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id"
+                                 referencedTableName="users" validate="true"/>
+
+        <addForeignKeyConstraint baseColumnNames="form_field_id" baseTableName="form_field_hist"
+                                 constraintName="field_hist_field_key"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="id" referencedTableName="form_field" validate="true"/>
+
+        <addForeignKeyConstraint baseColumnNames="form_template_id" baseTableName="form_field_hist"
+                                 constraintName="field_hist_templ_key"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="id" referencedTableName="form_template" validate="true"/>
+
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="form_field_hist"
+                                 constraintName="field_hist_user_key"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="id" referencedTableName="users" validate="true"/>
+
+        <addForeignKeyConstraint baseColumnNames="form_template_id" baseTableName="form_field"
+                                 constraintName="field_template_key"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="id" referencedTableName="form_template" validate="true"/>
+
+        <addForeignKeyConstraint baseColumnNames="form_field_id" baseTableName="field_option"
+                                 constraintName="option_field_key"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="id" referencedTableName="form_field" validate="true"/>
+
+        <addForeignKeyConstraint baseColumnNames="created_by" baseTableName="privileges"
+                                 constraintName="priv_created_key"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="id" referencedTableName="users" validate="true"/>
+
+        <addForeignKeyConstraint baseColumnNames="privilege_id" baseTableName="role_privileges"
+                                 constraintName="priv_key"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="id" referencedTableName="privileges" validate="true"/>
+
+        <addForeignKeyConstraint baseColumnNames="updated_by" baseTableName="privileges"
+                                 constraintName="priv_updated_key"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="id" referencedTableName="users" validate="true"/>
+
+        <addForeignKeyConstraint baseColumnNames="created_by" baseTableName="role_privileges"
+                                 constraintName="rol_priv_created_key"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="id" referencedTableName="users" validate="true"/>
+
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="role_privileges" constraintName="rol_priv_key"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="id" referencedTableName="roles" validate="true"/>
+
+        <addForeignKeyConstraint baseColumnNames="updated_by" baseTableName="role_privileges"
+                                 constraintName="rol_priv_updated_key"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="id" referencedTableName="users" validate="true"/>
+
+        <addForeignKeyConstraint baseColumnNames="created_by" baseTableName="roles" constraintName="role_created_key"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="id" referencedTableName="users" validate="true"/>
+
+        <addForeignKeyConstraint baseColumnNames="updated_by" baseTableName="roles" constraintName="role_updated_key"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="id" referencedTableName="users" validate="true"/>
+
+        <addForeignKeyConstraint baseColumnNames="updated_by" baseTableName="users" constraintName="updated_key"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="id" referencedTableName="users" validate="true"/>
+
+        <addForeignKeyConstraint baseColumnNames="manager_id" baseTableName="users" constraintName="user_manager_key"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="id" referencedTableName="users" validate="true"/>
+
+        <addForeignKeyConstraint baseColumnNames="created_by" baseTableName="user_roles"
+                                 constraintName="user_role_created_key"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="id" referencedTableName="users" validate="true"/>
+
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="user_roles" constraintName="user_role_rolkey"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="id" referencedTableName="roles" validate="true"/>
+
+        <addForeignKeyConstraint baseColumnNames="updated_by" baseTableName="user_roles"
+                                 constraintName="user_role_updated_key"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="id" referencedTableName="users" validate="true"/>
+
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="user_roles" constraintName="user_role_usrkey"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="id" referencedTableName="users" validate="true"/>
+
+        <addForeignKeyConstraint baseColumnNames="form_field_id" baseTableName="field_validator"
+                                 constraintName="validator_field_key"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="id" referencedTableName="form_field" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/documentor?createDatabaseIfNotExist=true
+    username: admin
+    password: admin
+
+auth:
+  authorities-key: authorities
+  secret: MwF%bgENN=-D=k%aSDMrsK6LCChAsa6Xh?$U^s#e2RzT7SCYWC-?MpvdK75gu6!n
+  cors-origins: 'http://documentor:4200'
+
+fileWatcher:
+  watchFolder: C:\\Dev\\DocDirUnderWatch
+  processDir: C:\\Dev\\ProcessedFiles
+  genDir: C:\\Dev\\GenFiles

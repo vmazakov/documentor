@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="20181219-2_insert_user_roles" author="Valentin Mazakov">
+        <comment>Insert initial USER</comment>
+
+        <insert tableName="users">
+            <column name="first_name">admin</column>
+            <column name="username">admin</column>
+            <column name="password">{bcrypt}$2a$10$jGjKRkiuKN45sUDqiCS1MOen/dbTQPDyXcybAR5A7/oXaaCjEouQ2</column>
+        </insert>
+
+        <insert tableName="roles">
+            <column name="description">ADMIN</column>
+            <column name="is_active">1</column>
+            <column name="is_system">1</column>
+        </insert>
+        <insert tableName="roles">
+            <column name="description">USER</column>
+            <column name="is_active">1</column>
+            <column name="is_system">1</column>
+        </insert>
+
+        <insert tableName="user_roles">
+            <column name="user_id">1</column>
+            <column name="role_id">1</column>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>
